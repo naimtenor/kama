@@ -1,9 +1,11 @@
 package sally.eomi;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.Normalizer;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
@@ -18,7 +20,7 @@ public class EomiDataMaker implements DataMaker {
 	public void make(DocumentBuilder builder) {
 		// TODO Auto-generated method stub
 		System.out.println("make eomi data....................");
-		Path eomiPath = Paths.get(Maker.ROOT_PATH + "data/eomi/");
+		Path eomiPath = Paths.get(Maker.ROOT_PATH + "data" + File.separator + "eomi" + File.separator);
 		
 		try {
 			Stream<Path> path = Files.list(eomiPath);
@@ -37,7 +39,8 @@ public class EomiDataMaker implements DataMaker {
 			}
 			String data = dataBuilder.substring(0, dataBuilder.length() - 1).toString();
 			
-			Path dicPath = Paths.get(Maker.ROOT_PATH + "/dic/eomi.dic");
+			Path dicPath = Paths.get(Maker.ROOT_PATH + "dic" + File.separator + "eomi.dic");
+			Files.write(dicPath, Normalizer.normalize(data, Normalizer.Form.NFD).getBytes());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

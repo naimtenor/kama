@@ -9,7 +9,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class Maker {
 	
-	public static final String ROOT_PATH = "/Users/devcraft40/Documents/xeed/workspace/cjz-test-kama-datamaker/";
+	public static final String ROOT_PATH = "C:\\cjz\\workspace\\kama\\cjz-test-kama-datamaker\\";
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, ParserConfigurationException {
 		List<String> makerList = Arrays.asList(new String[] {"sally.eomi.EomiDataMaker"});
